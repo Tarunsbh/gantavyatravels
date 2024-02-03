@@ -31,13 +31,15 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            animation: buttonAnimation 0.5s ease-in-out infinite;
+            /* Add animation to the button by default */
         }
 
         .phone-icon {
             width: 20px;
             /* Adjust the size of the phone icon as needed */
             height: 20px;
-            margin-right: 5px;
+            margin-right: 0px;
             /* Add margin for spacing */
         }
 
@@ -55,9 +57,29 @@
             }
         }
 
-        .call-button:hover {
-            animation: buttonAnimation 0.5s ease-in-out infinite;
-            /* Add animation to the button on hover */
+        .call-button {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #3498db;
+            /* You can adjust the background color */
+            color: #fff;
+            /* You can adjust the text color */
+            border: none;
+            cursor: pointer;
+        }
+
+        .phone-icon {
+            width: 20px;
+            /* You can adjust the icon size */
+            height: 20px;
+            margin-right: 5px;
+            /* Adjust the margin to provide space between icon and number */
+        }
+
+        .phone-number {
+            font-size: 14px;
+            /* Adjust the font size */
         }
     </style>
 
@@ -178,10 +200,11 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
-                                <div>
-                                    <h1 style="color: white;">CALL US FOR YOUR TRIP </h1>
-                                    <button class="call-button" onclick="animateButton()">
-                                        <img src="phone-icon.png" alt="Phone Icon" class="phone-icon"> +91 9313031521
+                                <div class="call-section">
+                                    <h1 style="color: white;">CALL US FOR YOUR TRIP</h1>
+                                    <button class="call-button" onclick="window.location.href='tel:+919313031521'">
+                                        <img src="./assets/img/icon/call.png" alt="Phone Icon" class="phone-icon">
+                                        <span class="phone-number">+919313031521</span>
                                     </button>
                                 </div>
                             </div>
