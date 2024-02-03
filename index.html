@@ -22,6 +22,55 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .call-button {
+            background-color: #007bff;
+            /* Change the background color as needed */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .phone-icon {
+            width: 20px;
+            /* Adjust the size of the phone icon as needed */
+            height: 20px;
+            margin-right: 5px;
+            /* Add margin for spacing */
+        }
+
+        @keyframes buttonAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .call-button:hover {
+            animation: buttonAnimation 0.5s ease-in-out infinite;
+            /* Add animation to the button on hover */
+        }
+    </style>
+
+    <script>
+        function animateButton() {
+            var button = document.querySelector('.call-button');
+            button.style.animation = 'buttonAnimation 0.5s ease-in-out';
+
+            // Reset animation after it completes
+            button.addEventListener('animationend', function () {
+                button.style.animation = '';
+            });
+    </script>
 </head>
 
 <body>
@@ -127,11 +176,22 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Search Box -->
                         <div class="row">
-                            <div class="col-xl-12">
-                                <!-- form -->
-                                <form action="#" class="search-box">
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <div>
+                                    <h1 style="color: white;">CALL US FOR YOUR TRIP </h1>
+                                    <button class="call-button" onclick="animateButton()">
+                                        <img src="phone-icon.png" alt="Phone Icon" class="phone-icon"> +91 9313031521
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search Box -->
+                        <!-- <div class="row">
+                            <div class="col-xl-12"> -->
+                        <!-- form -->
+                        <!-- <form action="#" class="search-box">
                                     <div class="input-form mb-30">
                                         <input type="text" placeholder="When Would you like to go ?">
                                     </div>
@@ -150,7 +210,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
