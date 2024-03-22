@@ -107,30 +107,7 @@
 
     <div class="containerhb">
         <h2>Hotel Reservation Form</h2>
-        <form action="#" method="post">
-            <label for="destination">Hotel Destination:</label>
-            <input type="text" id="destination" name="destination" required>
-
-            <label for="checkin">Check-in Date:</label>
-            <input type="date" id="checkin" name="checkin" required>
-
-            <label for="checkout">Check-out Date:</label>
-            <input type="date" id="checkout" name="checkout" required>
-
-            <label for="persons">Number of Persons:</label>
-            <input type="number" id="adults" name="adults" placeholder="Adults" required>
-            <input type="number" id="children" name="children" placeholder="Children">
-            <input type="number" id="infants" name="infants" placeholder="Infants">
-
-            <label for="rooms">Number of Rooms:</label>
-            <input type="number" id="rooms" name="rooms" required>
-
-            <label for="budget">Budget:</label>
-            <input type="text" id="budget" name="budget" required>
-
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4"></textarea>
-
+        <form onsubmit="sendEmail(); reset(); return false">
             <h2>Personal Information</h2>
 
             <label for="name">Your Name:</label>
@@ -138,9 +115,8 @@
 
             <label for="email">Your Email:</label>
             <input type="email" id="email" name="email" required>
-
             <label for="country">Select Country:</label>
-            <select id="country" name="country" required>
+            <select id="country" name="country" required size="5" class="custom-scrollbar ">
                 <option value="" disabled selected>Select your country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
@@ -210,11 +186,38 @@
                 <option value="YE">Yemen</option>
                 <option value="ZA">South Africa</option>
             </select>
-
-
-
+            <br><br><br>
             <label for="contact">Contact Number:</label>
             <input type="tel" id="contact" name="contact" required>
+            <hr>
+
+            <h2>Hotel Details Form</h2>
+
+
+            <label for="destination">Hotel Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <label for="persons">Number of Persons:</label>
+            <input type="number" id="adults" name="adults" placeholder="Adults" required>
+            <input type="number" id="children" name="children" placeholder="Children">
+            <input type="number" id="infants" name="infants" placeholder="Infants">
+
+            <label for="rooms">Number of Rooms:</label>
+            <input type="number" id="rooms" name="rooms" required>
+
+            <label for="budget">Budget:</label>
+            <input type="text" id="budget" name="budget" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+
+
 
             <input type="submit" value="Submit">
         </form>
@@ -321,6 +324,39 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "tarunsbh@gmail.com",
+                Password: "BA66BF88EFBF2F0E537DD67484F46C71322E",
+                To: "info.gantavyatravels@gmail.com",
+                From: "tarunsbh@gmail.com",
+                Subject: "Hotel query",
+                Body: "Name::" + document.getElementById("name").value +
+                    "<br> Email: " + document.getElementById("email").value +
+                    "<br> Country: " + document.getElementById("country").value +
+                    "<br> Contact Number: " + document.getElementById("contact").value +
+                    "<br>HOTEL INFORMATION" +
+                    "<br> Hotel Destination: " + document.getElementById("destination").value +
+                    "<br> Check-in Date:" + document.getElementById("checkin").value +
+                    "<br> Check-out Date: " + document.getElementById("checkout").value +
+                    "<br> Number of Adults: " + document.getElementById("adults").value +
+                    "<br> Number of Children: " + document.getElementById("children").value +
+                    "<br> Number of Infants: " + document.getElementById("infants").value +
+                    "<br> Number of Rooms: " + document.getElementById("rooms").value +
+                    "<br> Budget: " + document.getElementById("budget").value +
+                    "<br> Description: " + document.getElementById("description").value
+
+
+
+            }).then(
+                message => alert("Sent")
+            );
+
+        }
+    </script>
 
 </body>
 
